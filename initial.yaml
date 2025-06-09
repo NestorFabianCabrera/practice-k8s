@@ -1,0 +1,17 @@
+apiVersion: v1
+# Tipo de recurso que será el manifiesto
+kind: Pod
+
+# Información del recurso
+metadata:
+  # Nombre que tendrá el pod
+  name: nginx-metadata
+spec:
+  # Contenedores existentes dentro del pod
+  containers:
+    # Nombre del contenedor y la imagen respectiva para cada uno
+    - name: nginx
+      image: nginx
+
+    - name: hello
+      image: bihero/hello

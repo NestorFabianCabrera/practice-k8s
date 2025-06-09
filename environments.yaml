@@ -1,0 +1,28 @@
+# Version de la api de k8s a utilizar
+apiVersion: v1
+
+  # Tipo de recurso a crear
+kind: Pod
+
+# Metadatos pertenecientes al pod
+metadata:
+  # Nombre que tendrá el pod
+  name: version-two
+
+# Especificaciones de lo que llevará el pod
+spec:
+  # Contenedores existentes
+  containers:
+    # Primer contenedor, con un nombre, una imagen y variables de entorno
+    - name: nginx-container
+      image: nginx
+      # Variables de entorno a crear para el contenedor
+      env:
+        - name: HELLO_ENVIRONMENT
+          value: "Hola mundo"
+        - name: DD_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+      # Recursos que tendrá el contenedor
+
